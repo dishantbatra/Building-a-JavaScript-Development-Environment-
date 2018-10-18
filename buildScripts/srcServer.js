@@ -6,9 +6,15 @@
 import express from 'express';
 import path from 'path';
 import open from 'open' //open is used to open site on the browser.
-
+import webpack from 'webpack';
+import config from '../webpack.config.dev';
 var port = 3000;
 var app = express();
+const compiler = webpack(config);
+app.use(require('webpack-dev-middleware')(compiler,{
+  noInfo:true,
+  publicPath:config.output.publicPath
+}))
 app.get('/', function(req,resp){
 resp.sendFile(path.join(__dirname,'../src/index.html'));
 })
