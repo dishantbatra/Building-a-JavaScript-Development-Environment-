@@ -6,7 +6,7 @@ export default {
   devtool: 'inline-source-map',
   noInfo: false, //To display the information on the console which file are included in bundling during bundling process.
   entry: [
-    path.resolve(__dirname, 'src/index')
+    path.resolve(__dirname, 'src/index') // To tell entry point
   ],
   target: 'web',
   output: {
